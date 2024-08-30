@@ -30,8 +30,9 @@ export const defaultContentPageLayout: PageLayout = {
     Component.DesktopOnly(Component.Explorer()),
   ],
   right: [
-    Component.Graph(),
+    Component.MobileOnly(Component.Explorer({ title: "Navigation", useSavedState: false })),
     Component.DesktopOnly(Component.TableOfContents()),
+    Component.Graph(),
     Component.Backlinks(),
   ],
 }
