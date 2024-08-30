@@ -1,5 +1,5 @@
 ---
-title: Welcome to Quartz
+title: Sandi Sandkorn ⭐️
 ---
 I am Sandi, this is my email 
 This is a blank Quartz installation.
