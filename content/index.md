@@ -1,6 +1,7 @@
 ---
 title: Sandi Sandkorn ⭐️
 ---
-I am Sandi, this is my email 
+![[Sandra Rudeloff.png]]
+I am Sandi. 
 This is a blank Quartz installation.
 See the [documentation](https://quartz.jzhao.xyz) for how to get started.
