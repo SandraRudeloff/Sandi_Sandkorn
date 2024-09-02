@@ -1,5 +1,5 @@
 ---
-title: Sandi Sandkorn ⭐️
+title: Sandi Sandkorn
 ---
 
 
