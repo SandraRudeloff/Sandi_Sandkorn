@@ -10,5 +10,5 @@ private/
 .replit
 replit.nix
 content/scripts/data/Zensus2022_Bevoelkerungszahl_100m-Gitter.csv
-
+content/scripts/data/Datensatzbeschreibung_Bevoelkerungszahl_Gitterzellen.xlsx
 
