@@ -1,35 +1,35 @@
 ---
-title: "Lonboard"
+title: Visualizing Large Geospatial Data with Lonboard and Deck.gl
 draft: false
 tags:
-  -
 ---
 
 <iframe title="Gryffindor Fireplace  | Hogwarts Common Room Music &amp; Ambience" src="https://www.youtube.com/embed/0KYIwRfGrLk?feature=oembed" height="113" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;"></iframe>
 
 **Intro**
+Ever wanted to visualize massive amounts of spatial data interactively with Python, but found that libraries like `folium` or newer ones like `pydeck` just can’t keep up with the performance demands?
 
-- Ever struggled to make an interactively visualization of massive amounts of spatial data on a map?
-- Ever wanted to visualize huge amounts of data, such as population data in Germany in 100mx100m grid cells?
+In this video, I’ll show you how to handle and visualize Germany’s population data, which includes around 3 million 100m x 100m polygons, using the powerful new Python library, `lonboard`.
 
-Should I include how I transformed the data from .csv to a geodataframe?
-3,088,037 rows
+Hi, I’m Sandi, a PhD student at Kühne Logistics University in Hamburg, Germany. On this channel, I explore the fascinating topics that arise during my research journey, sharing insights and learning together.
 
-- build on deck.gl
-- do it with longboard
+We’ll start with a quick overview of lonboard and why it outperforms other libraries, followed by a hands-on example using publicly available census data from Germany.
 
-* why only in jupyter?
-* use a new virtual environment so that you can show what to install and why
-* Explain about CSR and how it was in the European one before
-* use population data as example
+# Lonboard and why it is so fast
+Lonboard is a Python library for fast, interactive geospatial data visualization in Jupyter Notebooks. It excels in performance by using advanced technologies like GeoArrow and GeoParquet for efficient data handling and GPU-based rendering for smooth visualization. Unlike other libraries like folium that use slower formats like GeoJSON, Lonboard’s approach ensures quick and responsive handling of large datasets.
+
+
+# CRS
+Let’s quickly talk about coordinate reference systems. it's basically a way to represent our 3D world on a 2D map!
+- WGS84 (World Geodetic System 1984) is the go-to CRS for most global maps. It uses latitude and longitude, and it’s the backbone of GPS systems. In order to tell geopandas, that which system we're using, we can use the code of the  European Petroleum Survey Group, the pioneers behind a standardized set of geodetic codes. They made it easy to identify and use different CRSs. For WGS84, that ID is EPSG:4326.
+- for the population data the  European Terrestrial Reference System 1989 (ETRS89) with the Lambert Azimuthal Equal-Area projection is used. This CRS is tailored for Europe, using meters and designed to keep distortions to a minimum over large areas—perfect for regional maps! (EPSG:3035)
+
+
+
 * Show the result in the beginning and how I wanted to visualize it to get a sense of the data and whether it behaves as I expect
-* interactive
-* why is lonboard so much more performant than other
-* Option: folium, deck.gl (but somehow lonboard is build upon it)
-* why log? many more little inhabitated cells
 
 [[Big Geospatial visualization with lonboard and Kyle Barron]]
 
-shiny would be an option to build a web app, but I haven't tested that yet
 
-Find the Jupyter Script [[visualize_population.html|here]].
+You can find a hosted version of the notebook here:
+https://notebooksharing.space/view/d655775674ed0c20c748a965c8cb40b9115be7d25eb41f559ef42179c537f3d0
