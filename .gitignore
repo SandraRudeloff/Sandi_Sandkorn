@@ -9,6 +9,7 @@ tsconfig.tsbuildinfo
 private/
 .replit
 replit.nix
-content/scripts/data/Zensus2022_Bevoelkerungszahl_100m-Gitter.csv
-content/scripts/data/Datensatzbeschreibung_Bevoelkerungszahl_Gitterzellen.xlsx
+content/scripts/data/population_data_Germany/Datensatzbeschreibung_Bevoelkerungszahl_Gitterzellen.xlsx
+content/scripts/visualization_population.html
+lonboard_vis/
 
