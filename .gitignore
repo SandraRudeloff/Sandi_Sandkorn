@@ -9,7 +9,8 @@ tsconfig.tsbuildinfo
 private/
 .replit
 replit.nix
+
 content/scripts/data/population_data_Germany/Datensatzbeschreibung_Bevoelkerungszahl_Gitterzellen.xlsx
 content/scripts/visualization_population.html
 lonboard_vis/
-
+.ipynb_checkpoints/
