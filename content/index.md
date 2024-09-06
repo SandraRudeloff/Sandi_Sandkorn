@@ -8,3 +8,5 @@ title: Sandi Sandkorn
 I am Sandi, I am 29 and a PhD Student at Kühne Logistics University in Hamburg, Germany.
 
 📧 srudeloff@outlook.com
+
+- Include Infos on the projects I worked for and what their goals are
