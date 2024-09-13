@@ -3,8 +3,7 @@ title: Visualizing Large Geospatial Data with Lonboard
 draft: false
 tags:
 ---
-
-<iframe title="Gryffindor Fireplace  | Hogwarts Common Room Music &amp; Ambience" src="https://www.youtube.com/embed/0KYIwRfGrLk?feature=oembed" height="113" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;"></iframe>
+<iframe src="https://youtu.be/RCww0LhOyKA" allow="fullscreen" allowfullscreen="" style="height:100%;width:100%; aspect-ratio: 16 / 9; "></iframe>
 
 **Did you ever want to visualize massive amounts of spatial data interactively with Python, only to find that libraries like `folium` or `pydeck` can’t quite keep up?**
 
