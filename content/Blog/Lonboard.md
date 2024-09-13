@@ -15,8 +15,7 @@ We’ll start with an overview of `lonboard` and why it stands out from other li
 **Full Notebook**
 To get the full hands-on experience, you’ll need the complete notebook that walks you through preparing the data, setting up the visualizations, and exploring Germany’s population data interactively.
 
-You can view the full notebook directly [[../scripts/Visualize Germany's Population using lonboard|here]] or download and explore a hosted version <font color="#c0504d">**[here].**  </font> 
-[here](https://notebooksharing.space/view/d655775674ed0c20c748a965c8cb40b9115be7d25eb41f559ef42179c537f3d0).
+You can view the full notebook directly [[../scripts/Visualize Germany's Population using lonboard|here]] or download and explore the hosted version [here](https://notebooksharing.space/view/96ca38ffb899c1b760fdf42800ced3a760bdc14d8cf1430a974307961dff8ce2#displayOptions=).
 
 **How `lonboard`’s Advanced Architecture Enhances Geospatial Visualization**
 

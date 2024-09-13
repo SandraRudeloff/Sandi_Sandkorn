@@ -3,7 +3,7 @@ title: Notebook - Visualize Germany's Population
 draft: false
 tags:
 ---
-You can download and explore a hosted version of the notebook <font color="#c0504d">**[here].**  </font>.  
+You can download and explore a hosted version of the notebook [here](https://notebooksharing.space/view/96ca38ffb899c1b760fdf42800ced3a760bdc14d8cf1430a974307961dff8ce2#displayOptions=)..  
 Also, please note, the interactive `lonboard` maps are not displayed on this site.
 
 ---
