@@ -1,8 +1,7 @@
 ---
 title: Big Geospatial visualization with lonboard and Kyle Barron
-draft: false
-tags:
-  - example-tag
+draft: true
+tags: []
 ---
 
 https://www.youtube.com/watch?v=NAjabS0GTdo

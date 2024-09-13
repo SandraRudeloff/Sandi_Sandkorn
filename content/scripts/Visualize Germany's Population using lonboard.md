@@ -1,10 +1,12 @@
 ---
-title: Visualize Germany's Population using lonboard
-draft: true
+title: Notebook - Visualize Germany's Population
+draft: false
 tags:
 ---
+You can download and explore a hosted version of the notebook <font color="#c0504d">**[here].**  </font>.  
+Also, please note, the interactive `lonboard` maps are not displayed on this site.
 
-# Visualize Germany's Population using `lonboard`
+---
 In this notebook we’ll use the [`lonboard`](https://developmentseed.org/lonboard/) library to visualize Germany’s population data, which consists of approximately 3 million polygons. By the end, you'll know how to create interactive maps of large spatial datasets directly in Jupyter notebooks.
 
 ## Imports
@@ -43,7 +45,7 @@ import seaborn as sns
 ```
 
 ## Fetch Population Data
-The population data we’ll be using is stored in a `.csv` file inside a ZIP folder. It consists of 100m x 100m grid cells covering the area of Germany, with population counts for each cell. We'll download this file, extract the data, and load it into a `pandas` DataFrame.
+The population data we’ll be using is stored in a `.csv` file inside a `.zip` folder. It consists of 100m x 100m grid cells covering the area of Germany, with population counts for each cell. We'll download this file, extract the data, and load it into a `pandas` DataFrame.
 
 ```python
 url = "https://www.zensus2022.de/static/Zensus_Veroeffentlichung/Zensus2022_Bevoelkerungszahl.zip"
@@ -67,71 +69,13 @@ Let’s take a quick look at the first few rows of the data to understand its st
 ```python
 df_pop.head()
 ```
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>GITTER_ID_100m</th>
-      <th>x_mp_100m</th>
-      <th>y_mp_100m</th>
-      <th>Einwohner</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>CRS3035RES100mN2689100E4337000</td>
-      <td>4337050</td>
-      <td>2689150</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>CRS3035RES100mN2689100E4341100</td>
-      <td>4341150</td>
-      <td>2689150</td>
-      <td>11</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>CRS3035RES100mN2690800E4341200</td>
-      <td>4341250</td>
-      <td>2690850</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>CRS3035RES100mN2691200E4341200</td>
-      <td>4341250</td>
-      <td>2691250</td>
-      <td>12</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>CRS3035RES100mN2691300E4341200</td>
-      <td>4341250</td>
-      <td>2691350</td>
-      <td>3</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
+	| GITTER_ID_100m                 |   x_mp_100m |   y_mp_100m |   Einwohner |
+	|:-------------------------------|------------:|------------:|------------:|
+	| CRS3035RES100mN2689100E4337000 |     4337050 |     2689150 |           4 |
+	| CRS3035RES100mN2689100E4341100 |     4341150 |     2689150 |          11 |
+	| CRS3035RES100mN2690800E4341200 |     4341250 |     2690850 |           4 |
+	| CRS3035RES100mN2691200E4341200 |     4341250 |     2691250 |          12 |
+	| CRS3035RES100mN2691300E4341200 |     4341250 |     2691350 |           3 |
 
 While we can't immediately tell the meaning of each column just from looking at the data, the [data description](https://www.zensus2022.de/static/Zensus_Veroeffentlichung/Datensatzbeschreibung_Bevoelkerungszahl_Gitterzellen.xlsx) clarifies the following:
 - `GITTER_ID_100m`: The unique identifier for each 100m x 100m grid cell.
@@ -147,7 +91,7 @@ df_pop['Population'] = pd.to_numeric(df_pop['Population'], errors='coerce') # co
 
 To visualize the data on a map, we need to transform the coordinates into polygons representing each grid cell. The dataset uses the ETRS89-LAEA Europe coordinate reference system, which measures distances in meters and is well-suited for European datasets.
 
-Since each grid cell is 100m x 100m, and the coordinates provided represent the center of each cell, we can use this information—combined with the fact that the CRS measures in meters—to create accurate polygons. When creating the `geopandas` GeoDataFrame, we’ll ensure that the correct CRS (ETRS89-LAEA) is set. However, for visualization in `lonboard`, we need to convert the coordinates to the more commonly used [WGS84 (EPSG:4326)](https://epsg.io/4326) CRS, which is based on latitude and longitude.
+Since each grid cell is 100m x 100m, and the coordinates provided represent the center of each cell, we can use this information - combined with the fact that the CRS measures in meters - to create accurate polygons. When creating the `geopandas` GeoDataFrame, we’ll ensure that the correct CRS (ETRS89-LAEA) is set. However, for visualization in `lonboard`, we need to convert the coordinates to the more commonly used [WGS84 (EPSG:4326)](https://epsg.io/4326) CRS, which is based on latitude and longitude.
 
 The following code will generate `geopandas Polygons` for each cell and convert the CRS for visualization:
 
@@ -187,91 +131,21 @@ gdf_population.info()
 gdf_population
 ```
 
+	| Population | geometry                                          |
+	| :--------- | :------------------------------------------------ |
+	| 4          | POLYGON ((10.21146 47.31529, 10.21278 47.31529... |
+	| 11         | POLYGON ((10.26565 47.31517, 10.26697 47.31517... |
+	| 4          | POLYGON ((10.26705 47.33047, 10.26837 47.33046... |
+	| 12         | POLYGON ((10.26707 47.33407, 10.26839 47.33407... |
+	| 3          | POLYGON ((10.26707 47.33497, 10.26839 47.33497... |
+	| ...        | ...                                               |
+	| 14         | POLYGON ((8.42288 55.02299, 8.42445 55.02301, ... |
+	| 4          | POLYGON ((8.41816 55.02383, 8.41972 55.02385, ... |
+	| 10         | POLYGON ((8.41972 55.02385, 8.42129 55.02387, ... |
+	| 3          | POLYGON ((8.42129 55.02387, 8.42285 55.02389, ... |
+	| 3          | POLYGON ((8.42285 55.02389, 8.42441 55.02391, ... |
+	3088037 rows × 2 columns
 
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Population</th>
-      <th>geometry</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>4</td>
-      <td>POLYGON ((10.21146 47.31529, 10.21278 47.31529...</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>11</td>
-      <td>POLYGON ((10.26565 47.31517, 10.26697 47.31517...</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>4</td>
-      <td>POLYGON ((10.26705 47.33047, 10.26837 47.33046...</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>12</td>
-      <td>POLYGON ((10.26707 47.33407, 10.26839 47.33407...</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>3</td>
-      <td>POLYGON ((10.26707 47.33497, 10.26839 47.33497...</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>3088032</th>
-      <td>14</td>
-      <td>POLYGON ((8.42288 55.02299, 8.42445 55.02301, ...</td>
-    </tr>
-    <tr>
-      <th>3088033</th>
-      <td>4</td>
-      <td>POLYGON ((8.41816 55.02383, 8.41972 55.02385, ...</td>
-    </tr>
-    <tr>
-      <th>3088034</th>
-      <td>10</td>
-      <td>POLYGON ((8.41972 55.02385, 8.42129 55.02387, ...</td>
-    </tr>
-    <tr>
-      <th>3088035</th>
-      <td>3</td>
-      <td>POLYGON ((8.42129 55.02387, 8.42285 55.02389, ...</td>
-    </tr>
-    <tr>
-      <th>3088036</th>
-      <td>3</td>
-      <td>POLYGON ((8.42285 55.02389, 8.42441 55.02391, ...</td>
-    </tr>
-  </tbody>
-</table>
-<p>3088037 rows × 2 columns</p>
-</div>
 
 
 
@@ -296,24 +170,19 @@ m
 ```
 
 
-
-
     Map(layers=[SolidPolygonLayer(table=pyarrow.Table
     Population: uint16
     geometry: list<item: list<item: fixed_siz…
 
 
-
 ### Set a Colormap
 We can explore the documentation for [`SolidPolygonLayer`](https://developmentseed.org/lonboard/latest/api/layers/solid-polygon-layer/) to learn about the various rendering options it offers. Instead of using the default black fill color, let’s customize the appearance by setting a new one. Since `get_fill_color` is a mutable property, we can easily update the color dynamically after creating the layer, without needing to recreate it.
-
 
 ```python
 polygon_layer.get_fill_color = [11, 127, 171]
 ```
 
 Blue is pretty, but let’s make our map more insightful by coloring each area based on its population. Using a [colormap](https://matplotlib.org/stable/users/explain/colors/colormaps.html) from `matplotlib`, we’ll scale the population values between 0 and 1. This will allow us to easily compare different population densities at a glance.
-
 
 ```python
 colormap = mpl.colormaps["YlOrRd"]
@@ -328,7 +197,6 @@ polygon_layer.get_fill_color = colors
 
 The new colorscheme already makes the map more insightful. However, it looks like the red colors aren’t showing up much, which might suggest that our data is skewed. Let’s check
 
-
 ```python
 def thousands_formatter(x, pos):
     return f'{int(x):,}'
@@ -340,15 +208,9 @@ plt.show()
 
 print("Skewness value:",gdf_population['Population'].skew())
 ```
+![[visualize_population_lonboard_23_0.png]]
 
-
-    
-![png](output_23_0.png)
-    
-
-
-    Skewness value: 4.7072006305650085
-
+	Skewness value: 4.7072006305650085
 
 The histogram and skewness reveal a strong positive skew — most cells have low populations, while only a few cells have very high numbers. This is why our linear colormap isn’t showing much color variation. To make these differences stand out, let’s switch to a logarithmic colormap, which will better highlight the variations in population density.
 
@@ -364,7 +226,7 @@ polygon_layer.get_fill_color = colors
 ```
 
 ### Add a Legend
-To make our map even clearer, let’s add a colorbar that shows how population densities correspond to colors. This will help users easily interpret the map. 
+To make our map even clearer, let’s add a `colorbar` that shows how population densities correspond to colors. This will help users easily interpret the map. 
 Here’s how we can set it up:
 
 
@@ -391,15 +253,9 @@ def create_colorbar():
 
 create_colorbar()
 ```
+![[visualize_population_lonboard_28_0.png]]
 
-
-    
-![png](output_28_0.png)
-    
-
-
-By using Jupyter widgets, we can capture the colorbar and then combine it with the map for a more comprehensive view.
-
+By using Jupyter widgets, we can capture the `colorbar` and then combine it with the map for a more comprehensive view.
 
 ```python
 # Display the map and the colorbar together
@@ -421,8 +277,8 @@ widgets.VBox([m, colorbar_output])
 
 
 ### Share a Map
-To share your interactive map, you can save it as an HTML file. This allows others to view and interact with the map in a web browser without needing any specialized software. 
-Here’s a simple way to save your map as an HTML file:
+To share your interactive map, you can save it as an `.html` file. This allows others to view and interact with the map in a web browser without needing any specialized software. 
+Here’s a simple way to save your map as an `.html` file:
 
 
 ```python
@@ -434,9 +290,9 @@ m.to_html("visualization_population.html")
 !open visualization_population.html
 ```
 
-Be aware that saving to HTML embeds the entire dataset into the file, which can result in a large file size. This might not be the most efficient way to share large datasets.
+Be aware that saving to `.html` embeds the entire dataset into the file, which can result in a large file size. This might not be the most efficient way to share large datasets.
 
-An alternative solution is to use [`Shiny`](https://developmentseed.org/lonboard/latest/ecosystem/shiny/), which integrates with Jupyter Widgets and supports `lonboard`. Shiny allows you to host the map and data separately, providing a more efficient way to share interactive maps for larger datasets.
+An alternative solution is to use [`Shiny`](https://developmentseed.org/lonboard/latest/ecosystem/shiny/), which integrates with Jupyter Widgets and supports `lonboard`. `Shiny` allows you to host the map and data separately, providing a more efficient way to share interactive maps for larger datasets.
 
 ## Additional Customization
 ### Interactive Filtering
@@ -535,10 +391,14 @@ m
 ```
 
 
-
-
     Map(layers=[SolidPolygonLayer(extruded=True, get_elevation=<pyarrow.lib.FloatArray object at 0x387493160>
     [
       …
 
 
+# Summary
+In this notebook, we explored how to visualize large spatial datasets, specifically Germany’s population data, using the `lonboard` library. You’ve seen how to fetch, clean, and transform population data into polygons, apply color scales to represent population density, and use advanced features like interactive filters and 3D maps for richer insights.
+
+By now, you should have a better understanding of how to handle and visualize large datasets directly in Jupyter notebooks, as well as how to customize maps for more meaningful visual representation.
+
+Learn More: If you’d like to explore further, check out the [lonboard documentation](https://developmentseed.org/lonboard/latest/) for more advanced functionalities.
