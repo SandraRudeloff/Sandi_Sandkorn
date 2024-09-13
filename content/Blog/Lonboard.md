@@ -1,5 +1,5 @@
 ---
-title: How to visualize large spatial datasets in seconds
+title: How to Visualize Large Spatial Datasets in Seconds
 draft: false
 tags:
 ---
