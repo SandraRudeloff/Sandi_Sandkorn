@@ -1,5 +1,5 @@
 ---
-title: Visualizing Large Geospatial Data with Lonboard
+title: How to visualize large spatial datasets in seconds
 draft: false
 tags:
 ---
