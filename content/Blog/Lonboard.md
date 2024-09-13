@@ -3,7 +3,7 @@ title: Visualizing Large Geospatial Data with Lonboard
 draft: false
 tags:
 ---
-<iframe src="https://youtu.be/RCww0LhOyKA" allow="fullscreen" allowfullscreen="" style="height:100%;width:100%; aspect-ratio: 16 / 9; "></iframe>
+<iframe title="How to visualize 3 million polygons in seconds" src="https://www.youtube.com/embed/RCww0LhOyKA?feature=oembed" height="113" width="200" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;" allowfullscreen="" allow="fullscreen"></iframe>
 
 **Did you ever want to visualize massive amounts of spatial data interactively with Python, only to find that libraries like `folium` or `pydeck` can’t quite keep up?**
 
