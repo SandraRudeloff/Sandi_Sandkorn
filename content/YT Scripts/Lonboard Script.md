@@ -4,8 +4,6 @@ draft: true
 tags:
 ---
 
-<iframe title="Gryffindor Fireplace  | Hogwarts Common Room Music &amp; Ambience" src="https://www.youtube.com/embed/0KYIwRfGrLk?feature=oembed" height="113" width="200" allowfullscreen="" allow="fullscreen" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;"></iframe>
-
 **Intro**
 
 Have you ever wanted to visualize massive amounts of spatial data interactively with Python, only to find that libraries like folium or pydeck just can’t keep up with the performance demands? 

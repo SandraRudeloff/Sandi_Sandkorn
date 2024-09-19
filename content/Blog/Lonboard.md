@@ -2,6 +2,11 @@
 title: How to Visualize Large Spatial Datasets in Seconds
 draft: false
 tags:
+  - python
+  - lonboard
+  - InteractiveMaps
+  - SpatialDataVisualization
+  - GeospatialData
 ---
 <iframe title="How to visualize 3 million polygons in seconds" src="https://www.youtube.com/embed/RCww0LhOyKA?feature=oembed" height="113" width="200" style="aspect-ratio: 1.76991 / 1; width: 100%; height: 100%;" allowfullscreen="" allow="fullscreen"></iframe>
 
@@ -15,7 +20,7 @@ We’ll start with an overview of `lonboard` and why it stands out from other li
 
 To get the full hands-on experience, you’ll need the complete notebook that walks you through preparing the data, setting up the visualizations, and exploring Germany’s population data interactively.
 
-You can view the full notebook directly [[../scripts/Visualize Germany's Population using lonboard|here]] or download and explore the hosted version [here](https://notebooksharing.space/view/96ca38ffb899c1b760fdf42800ced3a760bdc14d8cf1430a974307961dff8ce2#displayOptions=).
+You can view the full notebook directly [[Visualize Germany's Population using lonboard|here]] or download and explore the hosted version [here](https://notebooksharing.space/view/96ca38ffb899c1b760fdf42800ced3a760bdc14d8cf1430a974307961dff8ce2#displayOptions=).
 
 **How `lonboard`’s Advanced Architecture Enhances Geospatial Visualization**
 

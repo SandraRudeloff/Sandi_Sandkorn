@@ -10,7 +10,7 @@ private/
 .replit
 replit.nix
 
-content/scripts/data/population_data_Germany/Datensatzbeschreibung_Bevoelkerungszahl_Gitterzellen.xlsx
-content/scripts/visualization_population.html
+content/Coding Scripts/data/population_data_Germany/*
+content/Coding Scripts/visualization_population.html
 lonboard_vis/
 .ipynb_checkpoints/
